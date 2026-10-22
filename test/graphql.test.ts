@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { InputError, classify, createExecutor } from "../src/graphql.js";
 import { startStub, type Stub } from "./stub-server.js";

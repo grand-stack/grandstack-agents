@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 import { createServer, type Server } from "node:http";
 import type { AddressInfo } from "node:net";
 import { buildSchema, graphql } from "graphql";

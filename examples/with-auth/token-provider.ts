@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 // Gets an access token for a demo user from Keycloak and keeps it until shortly before it expires.
 // DEVELOPMENT ONLY: it uses the password grant with the demo realm's "grandstack-smoke" client. A real deployment
 // would use a client-credentials grant or a user-delegated flow instead (see docs/adding-auth.md).

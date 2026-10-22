@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 // Calls the running MCP container (or any streamable-HTTP MCP endpoint) like a client would. Usage: npm run container
 // MCP_URL defaults to http://localhost:4100/mcp. Read-only: it only runs a query and expects a mutation to be refused
 // unless the server was started with ALLOW_MUTATIONS=true (set EXPECT_MUTATIONS=true in that case).

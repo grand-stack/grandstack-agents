@@ -30,3 +30,4 @@ The stack (`grandstack` umbrella): `docker compose -f compose.yaml -f compose.ag
 - Pin `@modelcontextprotocol/sdk` and use v1-style imports. `graphql` must stay 16.x.
 - Do not claim in docs what you did not run. The live Claude run is not exercised by tests; keep saying so until it is.
 - Add a test for every new tool or guardrail (`test/tools.test.ts`, `test/mcp.test.ts`).
+- New code files need the copyright header (two lines: `Copyright (c) "Neo4j"` and `Neo4j Sweden AB [http://neo4j.com]`, in the file's comment syntax). Run `node ../grandstack/scripts/add-headers.mjs` to add it everywhere; `--check` lists what is missing. Generated files are exempt.

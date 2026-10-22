@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 // MCP server over stdio, for agents that start a local process (Claude Code, Claude Desktop, ...). Logs go to stderr only.
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js";
 import { loadConfig } from "./config.js";

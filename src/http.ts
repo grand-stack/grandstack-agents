@@ -1,4 +1,6 @@
 #!/usr/bin/env node
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 // MCP server over streamable HTTP (stateless): POST /mcp. A new server and transport per request, no sessions.
 import { createServer, type IncomingMessage, type ServerResponse } from "node:http";
 import { StreamableHTTPServerTransport } from "@modelcontextprotocol/sdk/server/streamableHttp.js";

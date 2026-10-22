@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 import { describe, expect, it } from "vitest";
 import { loadConfig } from "../src/config.js";
 

@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 import { buildClientSchema, getIntrospectionQuery, isObjectType, printSchema, printType, type GraphQLField, type GraphQLObjectType, type GraphQLSchema, type IntrospectionQuery } from "graphql";
 import type { Executor } from "./graphql.js";
 

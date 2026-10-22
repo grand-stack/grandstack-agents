@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 // A ModelAdapter for Claude, using the Anthropic SDK. Needs ANTHROPIC_API_KEY. Not exercised by the tests (no live model call).
 import Anthropic from "@anthropic-ai/sdk";
 import type { Block, ModelAdapter } from "../../src/agent.js";

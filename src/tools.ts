@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 import { z } from "zod";
 import type { Config } from "./config.js";
 import { InputError, classify, createExecutor, type Executor, type HeadersSource } from "./graphql.js";

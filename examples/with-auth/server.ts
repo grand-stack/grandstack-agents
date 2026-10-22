@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 // The same MCP server and tools, pointed at the grandstack-auth gateway, acting as one demo user.
 // The only difference from src/stdio.ts is the `headers` option: a function that supplies a fresh token for every request.
 //   AUTH_USER=alice npx tsx examples/with-auth/server.ts      (stdio; register it with your MCP client like src/stdio.ts)

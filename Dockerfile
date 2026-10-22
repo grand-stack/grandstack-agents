@@ -1,3 +1,5 @@
+# Copyright (c) "Neo4j"
+# Neo4j Sweden AB [http://neo4j.com]
 # The MCP server over streamable HTTP (POST /mcp) as a container. For stdio, run src/stdio.ts on your machine instead.
 FROM node:24-slim AS build
 WORKDIR /app

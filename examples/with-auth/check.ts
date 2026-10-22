@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 // Proves the auth example against a RUNNING auth stack (docker compose -f compose.yaml -f compose.auth.yaml up):
 // alice (a "user") can read but cannot change movies, bob (an "editor") can, and an anonymous agent can only read.
 // Creates and removes a movie named "ZZ Agent Auth ...". Usage: npx tsx examples/with-auth/check.ts

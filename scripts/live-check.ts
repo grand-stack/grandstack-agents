@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 // Checks the tools against a RUNNING grandstack stack (default http://localhost:4000/graphql), over MCP (streamable HTTP).
 // Creates data named "ZZ Agent ..." and removes it. Usage: npm run live   (GRAPHQL_URL to point elsewhere)
 import { Client } from "@modelcontextprotocol/sdk/client/index.js";

@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 // Ask a question about the data; a Claude model writes and runs GraphQL against the server until it can answer.
 //   ANTHROPIC_API_KEY=... npm run agent -- "Which three directors have made the most films?"
 // Settings: GRAPHQL_URL, ALLOW_MUTATIONS (default false), ANTHROPIC_MODEL (default claude-sonnet-5-5), GRAPHQL_HEADERS.

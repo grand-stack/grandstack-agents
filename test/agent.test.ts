@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { graphqlTool, runAgent, systemPrompt, type Block, type ModelAdapter } from "../src/agent.js";
 import { loadConfig } from "../src/config.js";

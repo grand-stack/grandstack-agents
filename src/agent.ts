@@ -1,3 +1,5 @@
+// Copyright (c) "Neo4j"
+// Neo4j Sweden AB [http://neo4j.com]
 // A small, readable agent loop. It has no MCP in it: the model asks to call a tool, the loop runs it, the result goes
 // back, until the model answers in plain text. The model itself is behind a ModelAdapter, so any provider can be used.
 import { z } from "zod";
