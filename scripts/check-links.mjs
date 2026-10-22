@@ -4,9 +4,10 @@
 // Dependency-free check that relative links and #anchors in this repo's markdown files resolve, and that embedded
 // diagrams are sound: images have alt text, SVGs are self-contained, and each figure's numbered legend matches the
 // callout numbers drawn in the SVG.
+// Links into sibling repositories are checked only when those repositories sit beside this one (as they do for the website sync).
 // Usage: node scripts/check-links.mjs   (run from the repo root; exits 1 on any broken link)
 import { existsSync, readdirSync, readFileSync, statSync } from "node:fs";
-import { dirname, join, resolve } from "node:path";
+import { dirname, join, relative, resolve, sep } from "node:path";
 
 const SKIP = new Set(["node_modules", "dist", ".git", "generated"]);
 
@@ -70,6 +71,9 @@ for (const file of markdownFiles(".")) {
     if (/^(https?:|mailto:)/.test(target)) continue;
     const [path, hash] = target.split("#");
     const dest = path ? resolve(dirname(file), path) : resolve(file);
+    // A link into a sibling repository (../../other-repo/docs/x.md) can only be checked when that repository is beside this one.
+    const outside = relative(resolve("."), dest).split(sep);
+    if (outside[0] === ".." && outside[1] && !existsSync(resolve(".", "..", outside[1]))) continue;
     if (!existsSync(dest)) { console.error(`${file}: missing file ${target}`); broken++; continue; }
     if (hash && dest.endsWith(".md") && !anchors(dest).has(hash)) { console.error(`${file}: missing anchor ${target}`); broken++; }
   }
