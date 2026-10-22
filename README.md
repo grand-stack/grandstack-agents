@@ -68,4 +68,4 @@ More clients and setups are in [the MCP server guide](docs/mcp-server.md).
 
 Working with a coding agent? Start with [AGENTS.md](AGENTS.md).
 
-Last verified: grandstack-agents v0.1.1 with grandstack-server v0.7.1 and grandstack-auth v0.1.1, `@modelcontextprotocol/sdk` 1.32.1, Node 24, under Podman 6 on macOS. The live Claude run of the agent example needs an `ANTHROPIC_API_KEY` and has **not** been run by the authors; the loop is tested with a scripted model.
+Last verified: grandstack-agents v0.1.2 with grandstack-server v0.7.1 and grandstack-auth v0.1.1, `@modelcontextprotocol/sdk` 1.32.1, Node 24, under Podman 6 on macOS. The live Claude run of the agent example needs an `ANTHROPIC_API_KEY` and has **not** been run by the authors; the loop is tested with a scripted model.
