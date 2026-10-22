@@ -2,7 +2,7 @@
 
 This repo needs no login: it talks to the open `grandstack-server`. When you put `grandstack-auth` in front of the server, the same tools work with one change: they send a token.
 
-> **Where to run this.** Commands on this page that start with `npm`, `node` or `docker build` run inside a clone of this repository: `git clone https://github.com/grand-stack/grandstack-agents`, then `cd grandstack-agents` (Node 22 or later; run `npm ci` once). Commands that need the running stack use the `grandstack` repository's compose files: see the [quickstart](https://grandstack.ai/quickstart/).
+> **Where to run this.** Commands on this page that start with `npm`, `node` or `docker build` run inside a clone of this repository: `git clone https://github.com/grand-stack/grandstack-agents`, then `cd grandstack-agents` (Node 22 or later; run `npm ci` once). Commands that need the running stack use the `grandstack` repository's compose files: see the [quickstart](https://www.grandstack.ai/quickstart/).
 
 ![The same tools with auth](diagrams/agent-with-auth.svg)
 

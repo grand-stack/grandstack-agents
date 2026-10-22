@@ -2,7 +2,7 @@
 
 `src/agent.ts` is the whole idea of an agent in about 60 lines: send the question and the tool list to a model; if the model asks for a tool, run it and send back the result; repeat until the model answers in text. There is no MCP in it.
 
-> **Where to run this.** Commands on this page that start with `npm`, `node` or `docker build` run inside a clone of this repository: `git clone https://github.com/grand-stack/grandstack-agents`, then `cd grandstack-agents` (Node 22 or later; run `npm ci` once). Commands that need the running stack use the `grandstack` repository's compose files: see the [quickstart](https://grandstack.ai/quickstart/).
+> **Where to run this.** Commands on this page that start with `npm`, `node` or `docker build` run inside a clone of this repository: `git clone https://github.com/grand-stack/grandstack-agents`, then `cd grandstack-agents` (Node 22 or later; run `npm ci` once). Commands that need the running stack use the `grandstack` repository's compose files: see the [quickstart](https://www.grandstack.ai/quickstart/).
 
 ```ts
 const result = await runAgent({
