@@ -38,6 +38,8 @@ Errors from the GraphQL server are returned the same way, with any partial data,
 
 The generated GraphQL schema is about 34 KB. Putting it all in a prompt wastes context. `get_schema` returns about 4.6 KB: the root fields and the types the schema file defines, without the generated filter, sort and input types. `describe_type` fetches those one at a time when the agent needs them.
 
+The schema an agent sees is only as helpful as its type definitions. See [designing the type definitions for agents](schema-design-for-agents.md).
+
 ## Stateless HTTP
 
 The HTTP server creates a new MCP server per request and keeps no sessions. That makes it trivial to run in a container and to call with curl. The cost is that it cannot push notifications; these tools do not need to.

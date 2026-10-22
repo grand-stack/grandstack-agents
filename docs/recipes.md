@@ -72,6 +72,10 @@ A refused call returns, for example, `The mutation "deleteMovies" is not allowed
 
 Existing tests use `deleteMovies` as their "allowed mutation" example (`test/mcp.test.ts`), and the stub has no `updateMovies`, so change those tests to a mutation you allow and add it to `test/stub-server.ts`. Add a test that a refused mutation never reaches the executor.
 
+## Make the schema easier for an agent
+
+See [designing the type definitions for agents](schema-design-for-agents.md): descriptions, stored answers, names for the task, and asking an agent what to improve.
+
 ## Change limits
 
 Set `TIMEOUT_MS`, `MAX_RESULT_BYTES`, `MAX_DOCUMENT_BYTES` in the environment; see [the MCP server](mcp-server.md#configuration).

@@ -60,6 +60,7 @@ More clients and setups are in [the MCP server guide](docs/mcp-server.md).
 | [Direct GraphQL](docs/direct-graphql.md) | What an agent does without MCP, with copy-paste examples |
 | [The agent loop](docs/agent-loop.md) | The runnable example, the model adapter, running it with Claude |
 | [Adding auth](docs/adding-auth.md) | Using `grandstack-auth` with these tools, with verified example code |
+| [Schema design for agents](docs/schema-design-for-agents.md) | Why tailored type definitions beat introspection alone, and what to do if you cannot change them |
 | [Guardrails](docs/guardrails.md) | What is checked, what is not |
 | [Recipes](docs/recipes.md) | Add a tool, restrict operations, change limits |
 | [Testing](docs/testing.md) | Unit, MCP, live and container checks |
@@ -67,4 +68,4 @@ More clients and setups are in [the MCP server guide](docs/mcp-server.md).
 
 Working with a coding agent? Start with [AGENTS.md](AGENTS.md).
 
-Last verified: grandstack-agents v0.1.0 with grandstack-server v0.7.1 and grandstack-auth v0.1.1, `@modelcontextprotocol/sdk` 1.32.1, Node 24, under Podman 6 on macOS. The live Claude run of the agent example needs an `ANTHROPIC_API_KEY` and has **not** been run by the authors; the loop is tested with a scripted model.
+Last verified: grandstack-agents v0.1.1 with grandstack-server v0.7.1 and grandstack-auth v0.1.1, `@modelcontextprotocol/sdk` 1.32.1, Node 24, under Podman 6 on macOS. The live Claude run of the agent example needs an `ANTHROPIC_API_KEY` and has **not** been run by the authors; the loop is tested with a scripted model.
