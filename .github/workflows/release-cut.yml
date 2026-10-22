@@ -1,0 +1,36 @@
+# Copyright (c) "Neo4j"
+# Neo4j Sweden AB [http://neo4j.com]
+name: release-cut
+# The release button: choose the kind of release; this sets the version, tags it, and runs the release.
+on:
+  workflow_dispatch:
+    inputs:
+      bump:
+        description: Kind of release
+        type: choice
+        options: [patch, minor, major]
+        default: patch
+        required: true
+      dry-run:
+        description: Show the next version and what would change, push nothing
+        type: boolean
+        default: false
+permissions:
+  contents: write
+  packages: write
+  actions: read
+jobs:
+  cut:
+    uses: grand-stack/.github/.github/workflows/cut-release.yml@v1
+    with:
+      bump: ${{ inputs.bump }}
+      dry-run: ${{ inputs.dry-run }}
+  release:
+    needs: cut
+    if: ${{ !inputs.dry-run }}
+    uses: grand-stack/.github/.github/workflows/release.yml@v1
+    with:
+      tag: ${{ needs.cut.outputs.tag }}
+      images: '[{"name":"grandstack-agents-mcp","context":".","file":"Dockerfile"}]'
+      skip-ci-gate: true
+    secrets: inherit

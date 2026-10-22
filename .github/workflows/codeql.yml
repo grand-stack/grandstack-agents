@@ -1,0 +1,16 @@
+# Copyright (c) "Neo4j"
+# Neo4j Sweden AB [http://neo4j.com]
+name: codeql
+on:
+  push:
+    branches: [main]
+  pull_request:
+  schedule:
+    - cron: "23 4 * * 1"
+permissions:
+  contents: read
+  security-events: write
+  actions: read
+jobs:
+  codeql:
+    uses: grand-stack/.github/.github/workflows/codeql.yml@v1

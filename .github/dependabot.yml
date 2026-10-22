@@ -1,0 +1,26 @@
+# Copyright (c) "Neo4j"
+# Neo4j Sweden AB [http://neo4j.com]
+# The ignores are pins that must hold (see AGENTS.md): graphql stays 16.x; @apollo/subgraph stays 2.14.4 (2.15.1 breaks @neo4j/graphql 7.6.4);
+# the MCP SDK stays on the v1 API. Everything else arrives as a pull request that CI validates.
+version: 2
+updates:
+  - package-ecosystem: npm
+    directory: "/"
+    schedule: { interval: weekly }
+    groups:
+      npm-minor-and-patch:
+        update-types: [minor, patch]
+    ignore:
+      - dependency-name: "graphql"
+        update-types: ["version-update:semver-major"]
+      - dependency-name: "@modelcontextprotocol/sdk"
+        update-types: ["version-update:semver-major"]
+  - package-ecosystem: docker
+    directory: "/"
+    schedule: { interval: weekly }
+  - package-ecosystem: github-actions
+    directory: "/"
+    schedule: { interval: weekly }
+    groups:
+      actions:
+        patterns: ["*"]

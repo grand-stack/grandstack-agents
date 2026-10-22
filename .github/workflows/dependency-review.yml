@@ -1,0 +1,11 @@
+# Copyright (c) "Neo4j"
+# Neo4j Sweden AB [http://neo4j.com]
+name: dependency-review
+on:
+  pull_request:
+permissions:
+  contents: read
+  pull-requests: write
+jobs:
+  review:
+    uses: grand-stack/.github/.github/workflows/dependency-review.yml@v1

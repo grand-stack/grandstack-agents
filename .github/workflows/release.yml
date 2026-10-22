@@ -1,0 +1,28 @@
+# Copyright (c) "Neo4j"
+# Neo4j Sweden AB [http://neo4j.com]
+name: release
+# A pushed tag vMAJOR.MINOR.PATCH publishes the release. Run it by hand with dry-run to check it without publishing anything.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Existing tag to release (vMAJOR.MINOR.PATCH)
+        required: true
+      dry-run:
+        description: Validate and build, publish nothing
+        type: boolean
+        default: true
+permissions:
+  contents: write
+  packages: write
+  actions: read
+jobs:
+  release:
+    uses: grand-stack/.github/.github/workflows/release.yml@v1
+    with:
+      tag: ${{ github.event_name == 'push' && github.ref_name || inputs.tag }}
+      images: '[{"name":"grandstack-agents-mcp","context":".","file":"Dockerfile"}]'
+      dry-run: ${{ github.event_name == 'workflow_dispatch' && inputs.dry-run }}
+    secrets: inherit
