@@ -2,6 +2,8 @@
 
 A small [Model Context Protocol](https://modelcontextprotocol.io) server that accepts GraphQL statements and runs them against any GraphQL endpoint. It knows nothing about movies: the schema is read by introspection, so it works with another GraphQL server too.
 
+> **Where to run this.** Commands on this page that start with `npm`, `node` or `docker build` run inside a clone of this repository: `git clone https://github.com/grand-stack/grandstack-agents`, then `cd grandstack-agents` (Node 22 or later; run `npm ci` once). Commands that need the running stack use the `grandstack` repository's compose files: see the [quickstart](https://grandstack.ai/quickstart/).
+
 ## Tools
 
 | Tool | Input | Result |

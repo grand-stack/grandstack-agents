@@ -9,6 +9,8 @@
 | `npm run auth:check` | the auth stack running | 9 checks of the [auth example](adding-auth.md) |
 | `npm run docs:check` | nothing | links, anchors, image alt text, SVG safety, diagram legends |
 
+> **Where to run this.** Commands on this page that start with `npm`, `node` or `docker build` run inside a clone of this repository: `git clone https://github.com/grand-stack/grandstack-agents`, then `cd grandstack-agents` (Node 22 or later; run `npm ci` once). Commands that need the running stack use the `grandstack` repository's compose files: see the [quickstart](https://grandstack.ai/quickstart/).
+
 ## Unit and integration tests (`npm test`)
 
 They run against `test/stub-server.ts`, a real `graphql-js` server over HTTP, so they need no Docker.

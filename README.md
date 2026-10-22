@@ -28,16 +28,20 @@ No login is needed here: it talks to `grandstack-server` as it is. [Adding auth]
 
 ## Run it
 
-With the `grandstack` umbrella (and its sibling repos) side by side:
+With the `grandstack` umbrella and its sibling repos cloned side by side into one folder:
 
 ```sh
+mkdir grand-stack && cd grand-stack      # any folder name
+for repo in grandstack grandstack-server grandstack-web grandstack-agents; do git clone https://github.com/grand-stack/$repo; done
 cd grandstack
 docker compose -f compose.yaml -f compose.agents.yaml up --build
 ```
 
-The MCP server (streamable HTTP) is then at `http://localhost:4100/mcp`. Or run it from this repo against a stack that is already up:
+The MCP server (streamable HTTP) is then at `http://localhost:4100/mcp`. Or run it from a clone of this repo (Node 22 or later) against a stack that is already up:
 
 ```sh
+git clone https://github.com/grand-stack/grandstack-agents   # skip if you cloned it above
+cd grandstack-agents
 npm ci
 npm run mcp:http        # HTTP on :4100
 npm run mcp:stdio       # stdio, for clients that start the process themselves
