@@ -23,9 +23,61 @@ These are choices you make in the schema file. The sample schema already makes s
 | Store the answer to a common question instead of making the agent compute it | `Person.actedCount` and `directedCount` are stored, so "who has directed the most films" is one sorted query, refreshed by the server after every mutation |
 | Name things for the task | Fields and relationships are named for what a person would say (`actors`, `directors`, `genres`) |
 | Leave out what an agent should not use | `nestedOperations: []` and `@mutation(operations: ...)` limit which generated mutations exist |
+| Write your own Cypher where the generated Cypher is slow or does not fit (`@cypher`) | [Custom Cypher](#custom-cypher-with-cypher), run on the sample data |
 | Offer purpose-built operations for frequent questions | A fixed tool is the same idea one level up: see [add a fixed-purpose tool](recipes.md#add-a-fixed-purpose-tool) |
 
-Beyond those, consider custom queries (for example a `topDirectors(limit:)` field backed by a Cypher query) when a question is both common and awkward in the generated shape, and keep the description of each operation as specific as a tool description, because the agent reads it the same way.
+Beyond those, use [`@cypher`](#custom-cypher-with-cypher) for questions that are common and awkward or slow in the generated shape, and keep the description of each operation as specific as a tool description, because the agent reads it the same way.
+
+## Custom Cypher with `@cypher`
+
+The generated Cypher is general. When it is slow for a question, or does not do what the question needs, write the Cypher yourself with the `@cypher` directive and give the result a name and a description an agent can find. There are two places to use it.
+
+**A computed field on a type.** Inside the statement, `this` is the node. `columnName` says which returned column is the field's value:
+
+```graphql
+extend type Person {
+  "How many different people this person has worked with on a film, as actor or director."
+  collaboratorCount: Int!
+    @cypher(
+      statement: """
+      MATCH (this)-[:ACTED_IN|DIRECTED]->(:Movie)<-[:ACTED_IN|DIRECTED]-(other:Person)
+      WHERE other <> this
+      RETURN count(DISTINCT other) AS n
+      """
+      columnName: "n"
+    )
+}
+```
+
+Asking `{ people(where: { name: { eq: "Tom Hanks" } }) { name collaboratorCount } }` returned `collaboratorCount` 41 on the sample data.
+
+**A custom query.** Arguments are available in the statement as parameters (`$limit`), and the field can return a type from the schema, so the agent can select fields on the result as usual:
+
+```graphql
+type Query {
+  "People who have directed the most films, most first. Use this for questions about top directors."
+  topDirectors(limit: Int = 5): [Person!]!
+    @cypher(
+      statement: """
+      MATCH (p:Person)-[:DIRECTED]->(m:Movie)
+      WITH p, count(m) AS n
+      ORDER BY n DESC, p.name
+      LIMIT $limit
+      RETURN p AS person
+      """
+      columnName: "person"
+    )
+}
+```
+
+`{ topDirectors(limit: 3) { name directedCount } }` returned Christopher Nolan 8, Steven Spielberg 7, Martin Scorsese 6 (ties are broken by name).
+
+Both were run on the sample stack by loading the definitions through the server's `SCHEMA_EXTRA_PATHS` setting (see the server's configuration doc) in a throwaway server instance; they are **not** part of the shipped schema. Two things we hit:
+
+- Define custom queries with `type Query { ... }` in the extra file. `extend type Query` made `@neo4j/graphql` 7.6.4 crash at startup with `Cannot read properties of undefined (reading 'kind')`, because the base schema file has no `Query` type of its own. (`extend type Person` works.)
+- The description is what an agent reads. Say when to use the field, as in `topDirectors` above. A custom query with a clear name and description is the schema-level version of a [fixed-purpose tool](recipes.md#add-a-fixed-purpose-tool), and the agent finds it with `get_schema` without any change to the MCP server.
+
+Use it where it earns its place: a question that is common and slow or awkward in the generated shape, or a result the generated filters cannot express. Keep statements read-only and small, and review them like any query you would put in front of production: custom Cypher runs as you wrote it, so the generated limits and filters do not apply to it. We did not test `@cypher` on mutations, filtering or sorting by a `@cypher` field, or authorization rules on one, so check those on your own schema before relying on them.
 
 ## If you cannot change the schema
 
