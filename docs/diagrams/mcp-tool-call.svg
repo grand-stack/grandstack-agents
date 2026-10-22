@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 360" width="1000" height="360" role="img" aria-labelledby="t d" font-family='system-ui, -apple-system, "Segoe UI", Roboto, sans-serif'><title id="t">What happens to one run_mutation call: four checks before anything is sent, and refusals come back as readable text</title><desc id="d">The agent calls run_mutation. The MCP server parses the document, checks it is a mutation, checks mutations are allowed, then applies limits. Only if all pass is the request sent to the GraphQL server. A refusal is returned to the agent as text and nothing is sent.</desc><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="arrS" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs><rect x="0.75" y="0.75" width="998.5" height="358.5" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<rect x="24" y="150" width="110" height="90" rx="8" fill="#e3f1fa" stroke="#0a6190" stroke-width="1.5"/>
+<text x="79.0" y="172" font-size="14" font-weight="650" text-anchor="middle" fill="#0f2233">agent</text>
+<text x="79.0" y="192" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">tools/call</text>
+<text x="79.0" y="208" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">run_mutation</text>
+<rect x="160" y="70" width="560" height="250" rx="8" fill="#eef2f6" stroke="#94a3b8" stroke-width="1.5" stroke-dasharray="6 4"/>
+<text x="440.0" y="92" font-size="13.5" font-weight="650" text-anchor="middle" fill="#0f2233">MCP server: four checks, in order</text>
+<rect x="176" y="130" width="120" height="110" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+<text x="236.0" y="152" font-size="13.5" font-weight="650" text-anchor="middle" fill="#0f2233">parse</text>
+<text x="236.0" y="171.5" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">syntax error:</text>
+<text x="236.0" y="187.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">line and column</text>
+<circle cx="176" cy="130" r="11" fill="#0a6190"/>
+<text x="176" y="134.5" font-size="13" font-weight="700" text-anchor="middle" fill="#ffffff">1</text>
+<path d="M 296 185 L 306 185" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="306" y="130" width="120" height="110" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+<text x="366.0" y="152" font-size="13.5" font-weight="650" text-anchor="middle" fill="#0f2233">lane</text>
+<text x="366.0" y="171.5" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">must be one</text>
+<text x="366.0" y="187.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">mutation</text>
+<circle cx="306" cy="130" r="11" fill="#0a6190"/>
+<text x="306" y="134.5" font-size="13" font-weight="700" text-anchor="middle" fill="#ffffff">2</text>
+<path d="M 426 185 L 436 185" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="436" y="130" width="120" height="110" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+<text x="496.0" y="152" font-size="13.5" font-weight="650" text-anchor="middle" fill="#0f2233">gate</text>
+<text x="496.0" y="171.5" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">ALLOW_MUTATIONS</text>
+<text x="496.0" y="187.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">must be true</text>
+<circle cx="436" cy="130" r="11" fill="#0a6190"/>
+<text x="436" y="134.5" font-size="13" font-weight="700" text-anchor="middle" fill="#ffffff">3</text>
+<path d="M 556 185 L 566 185" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="566" y="130" width="120" height="110" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="1.5"/>
+<text x="626.0" y="152" font-size="13.5" font-weight="650" text-anchor="middle" fill="#0f2233">limits</text>
+<text x="626.0" y="171.5" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">size, 15 s timeout,</text>
+<text x="626.0" y="187.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">result cap</text>
+<circle cx="566" cy="130" r="11" fill="#0a6190"/>
+<text x="566" y="134.5" font-size="13" font-weight="700" text-anchor="middle" fill="#ffffff">4</text>
+<path d="M 134 195 L 176 195" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="760" y="150" width="100" height="90" rx="8" fill="#fff4d6" stroke="#9a6700" stroke-width="1.5"/>
+<text x="810.0" y="172" font-size="13.5" font-weight="650" text-anchor="middle" fill="#0f2233">executor</text>
+<text x="810.0" y="191.5" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">POST with</text>
+<text x="810.0" y="207.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">the headers</text>
+<rect x="880" y="150" width="100" height="90" rx="8" fill="#e1f5ee" stroke="#0b8a6a" stroke-width="1.5"/>
+<text x="930.0" y="172" font-size="13.5" font-weight="650" text-anchor="middle" fill="#0f2233">server</text>
+<text x="930.0" y="191.5" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">grandstack-</text>
+<text x="930.0" y="207.0" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">server</text>
+<path d="M 686 185 L 760 185" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="700" y="172" font-size="12" font-weight="400" text-anchor="start" fill="#0f2233" stroke="#f8fafc" stroke-width="4" stroke-linejoin="round" paint-order="stroke">all pass</text>
+<path d="M 860 185 L 880 185" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="870" y="262" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">result returns as JSON text</text>
+<path d="M 496 240 L 496 290 L 79 290 L 79 240" fill="none" stroke="#b42318" stroke-width="1.8" stroke-dasharray="6 4" marker-end="url(#arr)"/>
+<text x="290" y="308" font-size="12" font-weight="400" text-anchor="start" fill="#b42318" stroke="#f8fafc" stroke-width="4" stroke-linejoin="round" paint-order="stroke">any check fails: the reason goes back as text, nothing is sent</text>
+<circle cx="24" cy="150" r="11" fill="#0a6190"/>
+<text x="24" y="154.5" font-size="13" font-weight="700" text-anchor="middle" fill="#ffffff">5</text>
+</svg>

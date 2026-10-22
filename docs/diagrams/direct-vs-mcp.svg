@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 560" width="1000" height="560" role="img" aria-labelledby="t d" font-family='system-ui, -apple-system, "Segoe UI", Roboto, sans-serif'><title id="t">Two ways an agent can use the same GraphQL server: its own loop with a graphql tool, or any MCP client with the MCP server</title><desc id="d">On the left an agent you write sends GraphQL through one graphql tool inside its own loop. On the right any MCP client calls tools on the MCP server. Both end in the same guarded executor and the same open GraphQL server.</desc><defs><marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker><marker id="arrS" viewBox="0 0 10 10" refX="1" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#64748b"/></marker></defs><rect x="0.75" y="0.75" width="998.5" height="558.5" rx="12" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="230" y="34" font-size="15" font-weight="700" text-anchor="middle" fill="#0f2233">Direct: your own agent loop</text>
+<text x="770" y="34" font-size="15" font-weight="700" text-anchor="middle" fill="#0f2233">Via MCP: any MCP client</text>
+<line x1="500" y1="20" x2="500" y2="330" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 5"/>
+<rect x="40" y="60" width="380" height="96" rx="8" fill="#e3f1fa" stroke="#0a6190" stroke-width="1.5"/>
+<text x="230.0" y="82" font-size="14" font-weight="650" text-anchor="middle" fill="#0f2233">agent you write</text>
+<text x="230.0" y="102" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">the model, the loop and the tool call</text>
+<text x="230.0" y="118" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">schema summary goes in the system prompt</text>
+<rect x="40" y="210" width="380" height="90" rx="8" fill="#ffffff" stroke="#64748b" stroke-width="2.6"/>
+<text x="230.0" y="232" font-size="14" font-weight="650" text-anchor="middle" fill="#0f2233">one tool: graphql</text>
+<text x="230.0" y="252" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">graphqlTool() in src/agent.ts</text>
+<text x="230.0" y="268" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">(query, variables)</text>
+<path d="M 230 156 L 230 210" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="246" y="188" font-size="12" font-weight="400" text-anchor="start" fill="#0f2233" stroke="#f8fafc" stroke-width="4" stroke-linejoin="round" paint-order="stroke">tool call: graphql({query})</text>
+<rect x="580" y="60" width="380" height="96" rx="8" fill="#e3f1fa" stroke="#0a6190" stroke-width="1.5"/>
+<text x="770.0" y="82" font-size="14" font-weight="650" text-anchor="middle" fill="#0f2233">any MCP client</text>
+<text x="770.0" y="102" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">Claude Code, Claude Desktop,</text>
+<text x="770.0" y="118" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">or your own app using the MCP SDK</text>
+<rect x="580" y="210" width="380" height="90" rx="8" fill="#e1f5ee" stroke="#0b8a6a" stroke-width="2.6"/>
+<text x="770.0" y="232" font-size="14" font-weight="650" text-anchor="middle" fill="#0f2233">MCP server</text>
+<text x="770.0" y="252" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">get_schema, describe_type,</text>
+<text x="770.0" y="268" font-size="12" font-weight="400" text-anchor="middle" fill="#475569">run_query, run_mutation</text>
+<path d="M 770 156 L 770 210" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="786" y="188" font-size="12" font-weight="400" text-anchor="start" fill="#0f2233" stroke="#f8fafc" stroke-width="4" stroke-linejoin="round" paint-order="stroke">MCP tool call (JSON-RPC)</text>
+<text x="770" y="322" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">stdio (local process) or HTTP :4100/mcp</text>
+<rect x="280" y="380" width="440" height="64" rx="8" fill="#fff4d6" stroke="#9a6700" stroke-width="1.5"/>
+<text x="500.0" y="402" font-size="13.5" font-weight="650" text-anchor="middle" fill="#0f2233">the guarded executor (src/graphql.ts)</text>
+<text x="500.0" y="421.5" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">parse, one operation, lane check, mutations off by default, timeout, size cap</text>
+<path d="M 230 300 L 230 340 L 390 340 L 390 380" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
+<path d="M 770 300 L 770 340 L 610 340 L 610 380" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
+<rect x="380" y="490" width="240" height="54" rx="8" fill="#e1f5ee" stroke="#0b8a6a" stroke-width="1.5"/>
+<text x="500.0" y="512" font-size="13.5" font-weight="650" text-anchor="middle" fill="#0f2233">grandstack-server  :4000</text>
+<text x="500.0" y="531.5" font-size="11.5" font-weight="400" text-anchor="middle" fill="#475569">open: no auth</text>
+<path d="M 500 444 L 500 490" fill="none" stroke="#64748b" stroke-width="1.8" marker-end="url(#arr)"/>
+<text x="516" y="472" font-size="12" font-weight="400" text-anchor="start" fill="#0f2233" stroke="#f8fafc" stroke-width="4" stroke-linejoin="round" paint-order="stroke">POST /graphql</text>
+<circle cx="40" cy="60" r="11" fill="#0a6190"/>
+<text x="40" y="64.5" font-size="13" font-weight="700" text-anchor="middle" fill="#ffffff">1</text>
+<circle cx="580" cy="60" r="11" fill="#0a6190"/>
+<text x="580" y="64.5" font-size="13" font-weight="700" text-anchor="middle" fill="#ffffff">2</text>
+<circle cx="280" cy="380" r="11" fill="#0a6190"/>
+<text x="280" y="384.5" font-size="13" font-weight="700" text-anchor="middle" fill="#ffffff">3</text>
+<circle cx="380" cy="490" r="11" fill="#0a6190"/>
+<text x="380" y="494.5" font-size="13" font-weight="700" text-anchor="middle" fill="#ffffff">4</text>
+<circle cx="580" cy="210" r="11" fill="#0a6190"/>
+<text x="580" y="214.5" font-size="13" font-weight="700" text-anchor="middle" fill="#ffffff">5</text>
+</svg>
