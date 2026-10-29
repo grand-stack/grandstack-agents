@@ -24,6 +24,7 @@ The stack (`grandstack` umbrella): `docker compose -f compose.yaml -f compose.ag
 
 ## Rules
 
+- **Build on the blocks; do not make a silo.** A new repository or setup must be made from what GRANDstack already provides (the `grandstack-server` image and its models, the `grandstack-federation` gateway, `grandstack-auth`, `grandstack-agents`, compose overlays in the `grandstack` repository), and improve a block when it falls short rather than copying or working around it. Read [building on GRANDstack](../grandstack/docs/building-on-grandstack.md) before creating a repository, a compose file, a server, a gateway or a docs structure. Providing building blocks that people shape into their own solution is a goal of the project.
 - Keep mutations off by default (`ALLOW_MUTATIONS`). Do not weaken that or the lane checks without a test.
 - Tool errors are returned as text with `isError`, not thrown.
 - No auth in this repo's default path. Auth lives in `examples/with-auth` and `grandstack-auth`.
