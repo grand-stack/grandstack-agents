@@ -22,14 +22,14 @@
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "1.32.2",
-    "graphql": "16.14.2",
+    "graphql": "16.15.0",
     "zod": "4.6.7"
   },
   "devDependencies": {
-    "@anthropic-ai/sdk": "1.3.0",
+    "@anthropic-ai/sdk": "1.6.0",
     "@types/node": "26.6.6",
     "tsx": "4.23.15",
     "typescript": "7.0.2",
-    "vitest": "5.0.5"
+    "vitest": "5.1.0"
   }
 }
